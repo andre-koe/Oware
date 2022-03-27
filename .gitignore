@@ -1,0 +1,39 @@
+# SBT specific
+
+dist/*
+target/
+lib_managed/
+src_managed/
+project/boot/
+project/plugins/project/
+.history
+.cache
+.lib/
+
+# Scala specific
+
+*.class
+*.log
+
+# Metals specific
+
+.metals/
+.bloop/
+project/metals.sbt
+
+# VSCode specific
+
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# Local History for Visual Studio Code
+.history/
+
+# Built Visual Studio Code Extensions
+*.vsix
+
+# IntelliJ specific
