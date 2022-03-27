@@ -26,6 +26,7 @@ project/metals.sbt
 
 # VSCode specific
 
+.vscode
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
