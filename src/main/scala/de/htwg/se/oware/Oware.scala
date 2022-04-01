@@ -1,4 +1,18 @@
-import scala.io.AnsiColor
+package de.htwg.se.oware
+
+/*
+TODO: Aufruf an diese Sturktur annähern
+@main def run: Unit =
+        println(eol + "Welcome to Oware!" + eol)
+        val field = new Field(3, Stone.Empty)
+        val controller = Controller(field)
+        val tui = TUI(controller)
+        tui.run
+*/
+
+
+
+
 
 @main def init: Unit =
         println(eol + "Welcome to Oware!" + eol)
