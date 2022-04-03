@@ -1,4 +1,5 @@
 package de.htwg.se.oware
+import de.htwg.se.oware.model.MyMatrix
 
 /*
 TODO: Aufruf an diese Sturktur annähern
@@ -10,13 +11,24 @@ TODO: Aufruf an diese Sturktur annähern
         tui.run
 */
 
+def test:Unit = {
+        val s1: Vector[Int] = Vector(4, 4, 4);
+        val s2: Vector[Int] = Vector(3, 4, 5)
 
+        //val t: Matrix[Int] = Matrix(s1, s2)
 
+        //println(t.toString)
 
+        val s3: MyMatrix[Int] = new MyMatrix(6, 4)
+        
+        println(s3._1)
+        
+}
 
 @main def init: Unit =
-        println(eol + "Welcome to Oware!" + eol)
-        println(mesh(3, cellNum = len_board))
+        test
+        //println(eol + "Welcome to Oware!" + eol)
+        //println(mesh(3, cellNum = len_board))
 
 // Game description: http://joansala.com/auale/rules/en/
 val len_board:Int = 1
