@@ -11,7 +11,7 @@ TODO: Aufruf an diese Sturktur annähern
         tui.run
 */
 
-def test:Unit = {
+/*def test:Unit = {
         val s1: Vector[Int] = Vector(4, 4, 4);
         val s2: Vector[Int] = Vector(3, 4, 5)
 
@@ -24,16 +24,17 @@ def test:Unit = {
         println(s3._1)
         
 }
+*/
 
 @main def init: Unit =
-        test
+        //test
         //println(eol + "Welcome to Oware!" + eol)
-        //println(mesh(3, cellNum = len_board))
+        println(mesh(3, cellNum = len_board))
 
 // Game description: http://joansala.com/auale/rules/en/
 val len_board:Int = 1
 
-val eol = sys.props("line.separator")
+val eol = System.lineSeparator
 def bar(cellWidth: Int = 3, cellNum: Int = 3) =
         ("+" + "-" * cellWidth) * cellNum + "+" + eol
 def cells(cellWidth:Int = 3, cellNum: Int = 3) =
