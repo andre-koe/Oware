@@ -6,4 +6,7 @@ case class Cell(value: Int) {
   def isSnackable: Boolean = value >= 2
   def add: Cell = Cell(value + 1)
   def empty: Cell = Cell(0)
+  
+  override def toString: String = value.toString;
+  
 }

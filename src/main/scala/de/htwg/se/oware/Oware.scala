@@ -1,5 +1,5 @@
 package de.htwg.se.oware
-import de.htwg.se.oware.model.MyMatrix
+import de.htwg.se.oware.model.MyField
 
 /*
 TODO: Aufruf an diese Sturktur annähern
@@ -19,7 +19,7 @@ def test:Unit = {
 
         //println(t.toString)
 
-        val s3: MyMatrix[Int] = new MyMatrix(6, 4)
+        val s3: MyField = new MyField(2)
         
         println(s3._1)
         
