@@ -1,27 +1,21 @@
 package de.htwg.se.oware.model
 
-package de.htwg.se.sudoku.model
+case class Field(private val cells: Matrix[Cell]):
+    def this(size: Int) = this(new Matrix[Cell](size, Cell(4)))
+    val total_size = cells.total_length
+    val row_size = cells.row_length;
+    def cell(index: Int) = cells.cell(index)
 
-import scala.math.sqrt
+    def top_bar = "/" + "-" * cells.max.toString.length + "\\"
+    def m: String = {
+        var sb: StringBuilder = StringBuilder()
+        for {
+            cells <- 0 until row_size
+        } sb.append("| " + cell.toString + " |")
+        sb.toString;
+    }
+    def bot_bar = "\\" + "-" * cells.max.toString.length + "/"
 
-case class Field(private val cells:Matrix[Cell]) {
-  def this(size:Int) = this(new Matrix[Cell](size, Cell(0)))
-  val size:Int = cells.size
-  def cell(row:Int, col:Int):Cell = cells.cell(row, col)
-  def set(row:Int, col:Int, value:Int):Field = copy(cells.replaceCell(row, col, Cell(value)))
-  def row(row:Int):House = House(cells.rows(row))
-  def col(col:Int):House = House(cells.rows.map(row=>row(col)))
-  def block(block:Int):House = {
-    val blocknum:Int = sqrt(size).toInt
-    def blockAt(row: Int, col: Int):Int = (col / blocknum) + (row / blocknum) * blocknum
-    House((for {
-      row <- 0 until size
-      col <- 0 until size; if blockAt(row, col) == block
-    } yield cell(row, col)).asInstanceOf[Vector[Cell]])
-  }
-}
-
-
-case class House(private val cells:Vector[Cell]) {
-  def cell(index:Int):Cell = cells(index)
-}
+    override def toString: String = top_bar + System.lineSeparator + m + System.lineSeparator + bot_bar
+    
+    
