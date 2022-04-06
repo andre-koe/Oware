@@ -1,5 +1,5 @@
 package de.htwg.se.oware
-import de.htwg.se.oware.model.MyField
+import de.htwg.se.oware.model.Field
 
 /*
 TODO: Aufruf an diese Sturktur annähern
@@ -29,7 +29,9 @@ TODO: Aufruf an diese Sturktur annähern
 @main def init: Unit =
         //test
         //println(eol + "Welcome to Oware!" + eol)
-        println(mesh(3, cellNum = len_board))
+        //println(mesh(3, cellNum = len_board))
+        val f = new Field()
+        printf(f.toString)
 
 // Game description: http://joansala.com/auale/rules/en/
 val len_board:Int = 1
