@@ -14,16 +14,5 @@ case class Field(private val cells: Matrix[Cell]):
         }
         max
     }
-    def top_bar = (" /" + "-" * max_value.toString.length + "\\ ") * row_size
-    def m: String = {
-        var sb: StringBuilder = StringBuilder()
-        for {
-            cells <- 0 until total_size
-        } sb.append("| " + cell(cells).toString + " |")
-        sb.toString;
-    }
-    def bot_bar = (" \\" + "-" * max_value.toString.length + "/ ") * row_size
-
-    override def toString: String = top_bar + System.lineSeparator + m + System.lineSeparator + bot_bar
     
     
