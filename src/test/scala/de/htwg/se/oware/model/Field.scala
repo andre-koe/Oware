@@ -30,5 +30,6 @@ class FieldSpec extends AnyWordSpec with Matchers {
                 testField.max_value equals(4)
             }
         }
+        "initialized with new Field(1)"
     } 
 }

@@ -24,12 +24,17 @@ class CellSpec extends AnyWordSpec with Matchers {
         snackableCell.isSnackable should be(true)
       }
     }
-    "when turned into string" should {
+    "turned into string" should {
       val cellToString = Cell(7).toString
       "have the appropriate value" in {
         cellToString equals("7")
       }
-      
     }
+    "emptied" should {
+      val cell = Cell(7);
+       "have a value of 0" in {
+         cell.empty.value equals(0)
+        }
+      }
   }
 }

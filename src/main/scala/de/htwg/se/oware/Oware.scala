@@ -30,7 +30,9 @@ TODO: Aufruf an diese Sturktur annähern
         //test
         //println(eol + "Welcome to Oware!" + eol)
         //println(mesh(3, cellNum = len_board))
-        val f = new Field()
+        val f = new Field(6)
+        f.seed_from(7)
+        f.cell(2)
         printf(f.toString)
 
 // Game description: http://joansala.com/auale/rules/en/

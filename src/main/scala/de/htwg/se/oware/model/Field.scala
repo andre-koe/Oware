@@ -14,16 +14,28 @@ case class Field(private val cells: Matrix[Cell]):
         }
         max
     }
+    def seed_from(index:Int): Unit = {
+        var no_of_cells: Int = cell(index).value
+        cell(index).empty
+    }
     def top_bar = (" /" + "-" * max_value.toString.length + "\\ ") * row_size
     def m: String = {
         var sb: StringBuilder = StringBuilder()
         for {
-            cells <- 0 until total_size
+            cells <- 0 until row_size
         } sb.append("| " + cell(cells).toString + " |")
-        sb.toString;
+        sb.append(System.lineSeparator)
+        sb.append(bot_bar)
+        sb.append(System.lineSeparator)
+        sb.append(top_bar)
+        sb.append(System.lineSeparator)
+        for {
+            cells <- total_size-1 to row_size by -1
+        } sb.append("| " + cell(cells).toString + " |")
+        sb.toString
     }
     def bot_bar = (" \\" + "-" * max_value.toString.length + "/ ") * row_size
 
-    override def toString: String = top_bar + System.lineSeparator + m + System.lineSeparator + bot_bar
+    override def toString: String = top_bar + System.lineSeparator + m + System.lineSeparator + bot_bar + System.lineSeparator
     
     
