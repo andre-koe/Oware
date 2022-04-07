@@ -49,15 +49,15 @@ class CellSpec extends AnyWordSpec with Matchers {
       }
     }
 
-    "when turned into string" should {
+    "turned into string" should {
       val cellToString = Cell(7).toString
       "have the appropriate value" in {
-        cellToString equals("9")
+        cellToString should be("7")
       }
       
     }
 
-    "When emptied" should {
+    "emptied" should {
       val cell_to_be_emptied = Cell(7)
       "have a value of zero" in {
         cell_to_be_emptied.empty.value should be(0)
