@@ -31,7 +31,7 @@ class FieldSpec extends AnyWordSpec with Matchers {
                 val testField = new Field(1)
                 testField.h_bar should be ("+---+")
             }
-            "have a scalable h_bar +---+---+ for size 1" in {
+            "have a scalable h_bar +---+---+ for size 2" in {
                 val testField = new Field(2)
                 testField.h_bar should be ("+---+---+")
             }

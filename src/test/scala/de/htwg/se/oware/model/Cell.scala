@@ -68,5 +68,20 @@ class CellSpec extends AnyWordSpec with Matchers {
         cell_to_be_emptied.empty.value should be(0)
       }
     }
+
+    "compared with another cell" should {
+      val cell_one = Cell(3)
+      val cell_two = Cell(7)
+
+      "return a value of 1 if cell(7).compare(cell(3))" in {
+        cell_two.compare(cell_one) should be(1)
+      }
+      "return a value of -1 if cell(3).compare(cell(7))" in {
+        cell_one.compare(cell_two) should be(-1)
+      }
+      "return a value of 0 if cells have the same values" in {
+        cell_one.compare(cell_one) should be(0)
+      }
+    }
   }
 }
