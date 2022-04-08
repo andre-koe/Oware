@@ -58,16 +58,9 @@ class CellSpec extends AnyWordSpec with Matchers {
     "emptied" should {
       val cell = Cell(7);
        "have a value of 0" in {
-         cell.empty.value equals(0)
+         cell.empty.value should be(0)
         }
       }
-
-    "emptied" should {
-      val cell_to_be_emptied = Cell(7)
-      "have a value of zero" in {
-        cell_to_be_emptied.empty.value should be(0)
-      }
-    }
 
     "compared with another cell" should {
       val cell_one = Cell(3)
