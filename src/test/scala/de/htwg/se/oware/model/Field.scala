@@ -26,64 +26,35 @@ class FieldSpec extends AnyWordSpec with Matchers {
                 testField.cell(0).empty.value should be(0)
             }
         }
-        "turned into a string" should {
-            "have a scalable h_bar +---+ for size 1" in {
-                val testField = new Field(1)
-                testField.h_bar should be ("+---+")
-            }
-            "have a scalable h_bar +---+---+ for size 2" in {
-                val testField = new Field(2)
-                testField.h_bar should be ("+---+---+")
-            }
-            "have a scalable v_bar |   | for size 1" in {
-                val testField = new Field(1)
-                testField.v_bar should be ("|   |")
-            }
-            "have a scalable v_bar |   |   | for size 2" in {
-                val testField = new Field(2)
-                testField.v_bar should be ("|   |   |")
-            }
-            "have a row dependend on the size of the field which looks like this for new Field(1)" + System.lineSeparator +
-              "     +---+" + System.lineSeparator + 
-              "     |   |" in {
-                val testField = new Field(1)
-                testField.row should be ("+---+" + System.lineSeparator + "|   |")
-            }
-            "have a row dependend on the size of the field which looks like this for new Field(2)" + System.lineSeparator +
-              "     +---+---+" + System.lineSeparator + 
-              "     |   |   |" in {
-                val testField = new Field(2)
-                testField.row should be ("+---+---+" + System.lineSeparator + "|   |   |")
-            }
-            
+        "turned into a string" should {            
             "have a toString representation which looks like this for new Field(1)" + System.lineSeparator +
               "     +---+" + System.lineSeparator +
-              "     |   |" + System.lineSeparator +
+              "     | 4 |" + System.lineSeparator +
               "     +---+" + System.lineSeparator +
-              "     |   |" + System.lineSeparator +
+              "     | 4 |" + System.lineSeparator +
               "     +---+" in {
                   val testField = new Field(1)
                   testField.toString should be ("+---+" + System.lineSeparator + 
-                                                "|   |" + System.lineSeparator + 
+                                                "| 4 |" + System.lineSeparator + 
                                                 "+---+" + System.lineSeparator +
-                                                "|   |" + System.lineSeparator +
+                                                "| 4 |" + System.lineSeparator +
                                                 "+---+")
             }
               
             "have a toString representation which looks like this for new Field(2)" + System.lineSeparator +
               "     +---+---+" + System.lineSeparator +
-              "     |   |   |" + System.lineSeparator +
+              "     | 4 | 4 |" + System.lineSeparator +
               "     +---+---+" + System.lineSeparator +
-              "     |   |   |" + System.lineSeparator +
+              "     | 4 | 4 |" + System.lineSeparator +
               "     +---+---+" in {
                   val testField = new Field(2)
                   testField.toString should be ("+---+---+" + System.lineSeparator + 
-                                                "|   |   |" + System.lineSeparator + 
+                                                "| 4 | 4 |" + System.lineSeparator + 
                                                 "+---+---+" + System.lineSeparator +
-                                                "|   |   |" + System.lineSeparator +
+                                                "| 4 | 4 |" + System.lineSeparator +
                                                 "+---+---+")
               }
         }
-        "initialized with new Field(1)"
+        
     } 
 }

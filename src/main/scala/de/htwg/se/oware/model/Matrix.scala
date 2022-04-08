@@ -5,3 +5,4 @@ case class Matrix[T](cols: Vector[T]):
     def total_length: Int = cols.size
     def row_length: Int = if ((total_length % 2) == 0) (total_length/2)  else 0
     def cell(index: Int): T = cols(index % total_length);
+    

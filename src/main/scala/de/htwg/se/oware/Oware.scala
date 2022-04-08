@@ -15,6 +15,7 @@ val eol = System.lineSeparator;
 
 @main def init: Unit =
         println(eol + "Welcome to Oware!" + eol)
-        val f = new Field(6)
+        val f = new Field(1)
+        f.cell(0).add
         println(f)
 
