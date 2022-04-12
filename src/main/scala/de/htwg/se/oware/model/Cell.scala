@@ -14,7 +14,7 @@ case class Cell(value: Int) extends Ordered[Cell]{
     else 
       -1
     end if
-    
+
   override def toString: String = value.toString;
   
 }
