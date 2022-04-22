@@ -16,11 +16,11 @@ object Oware {
 
         println(field.toString)
         
-
         while (input != "q")
             input = readLine()
             field = tui.input_processing(input, field)
             println(field.toString)
+        println( AnsiColor.YELLOW + "Goodbye" + AnsiColor.RESET + eol)
     } 
 }
         

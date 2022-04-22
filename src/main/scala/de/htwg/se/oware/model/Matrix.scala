@@ -5,6 +5,7 @@ case class Matrix(cols: Vector[Cell]):
     def total_length: Int = cols.size
     def row_length: Int = if ((total_length % 2) == 0) (total_length/2)  else 0
     def cell(index: Int): Cell  = cols(index % total_length)
+    /* FIX THIS SHIT! */
     def populate_new(index: Int, value: Int): Matrix = {
         var temp_array: Array[Cell] = new Array(total_length)
         cols.copyToArray(temp_array)
