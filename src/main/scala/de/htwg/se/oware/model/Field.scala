@@ -2,6 +2,7 @@ package de.htwg.se.oware.model
 
 import java.{util => ju}
 import scala.collection.mutable.Buffer
+import java.util.Observable
 
 case class Field(private val cells: Matrix):
     def this(size: Int = 6) = this(new Matrix(size, Cell(4)))
