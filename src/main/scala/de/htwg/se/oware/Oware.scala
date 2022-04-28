@@ -11,18 +11,19 @@ object Oware {
     var field = new Field(6)
     val controller = Controller(field)
     val tui = new TUI(controller)
+    val welcome_msg = eol + AnsiColor.YELLOW + "Welcome to Oware!" + AnsiColor.RESET + eol
     
 
     def main(args: Array[String]): Unit = {
         var input = ""
-        println(eol + AnsiColor.YELLOW + "Welcome to Oware!" + AnsiColor.RESET + eol)
+        println(welcome_msg)
 
         controller.notifyObservers
         
         while (input != "q")
             input = readLine()
             tui.input_processing(input)
-            // tui.update
+        
         println( AnsiColor.YELLOW + "Goodbye" + AnsiColor.RESET + eol)
     } 
 }
