@@ -21,4 +21,4 @@ class Controller(var field:Field) extends Observable:
     notifyObservers
   }
   def fetchData: Field = field
-  def FieldToString: String = field.toString
+  def fieldToString: String = field.toString

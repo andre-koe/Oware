@@ -12,7 +12,6 @@ object Oware {
     val controller = Controller(field)
     val tui = new TUI(controller)
     val welcome_msg = eol + AnsiColor.YELLOW + "Welcome to Oware!" + AnsiColor.RESET + eol
-    
 
     def main(args: Array[String]): Unit = {
         var input = ""
