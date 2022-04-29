@@ -16,7 +16,7 @@ class TUISpec extends AnyWordSpec with Matchers {
   "The TUI" when {    
         "encountering a faulty user input" should {
             "return a color coded string as specified" in {
-                tui.error_message("Unknown", "parameter", "k") should be(AnsiColor.RED + " Unknown parameter: k enter h for help" + AnsiColor.RESET)
+                tui.error_message("Unknown", "parameter", "k") should be(AnsiColor.RED + "Unknown parameter: k enter h for help" + AnsiColor.RESET)
             }
         }
         "fed a string (user input)" should {

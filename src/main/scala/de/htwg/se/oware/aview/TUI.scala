@@ -28,7 +28,7 @@ class TUI(controller: Controller) extends Observer:
                    "h" + " "* (5 + ("Command".length - 1)) + "Show help" + eof +
                    "q" + " "* (5 + ("Command".length - 1)) + "ends the game"
 
-    def error_message(domain: String, type_of: String, input:String): String = AnsiColor.RED + " " + domain + " " + type_of + ": " + input + " enter h for help" + AnsiColor.RESET
+    def error_message(domain: String, type_of: String, input:String): String = AnsiColor.RED + domain + " " + type_of + ": " + input + " enter h for help" + AnsiColor.RESET
 
     def sanitize_input(input: String): Array[String] = input.toLowerCase().stripLeading.split(" ")
 
@@ -40,7 +40,9 @@ class TUI(controller: Controller) extends Observer:
                 case "s" | "seed"  => if str.length > 1 then seed_from(str(1))  
                                       else println(error_message("Missing", "parameter", ""))                                   
                 case "r" | "rules" => println(eof + rules_string + eof)
+                                      update
                 case "h" | "help"  => println(eof + menu_string + eof)
+                                      update
                 case "q" => return
                 case default => println(error_message("Unknown", "input", default))
         }
