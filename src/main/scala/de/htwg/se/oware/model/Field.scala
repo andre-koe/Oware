@@ -8,7 +8,7 @@ case class Field(private val cells: Matrix):
     def cell(index: Int): Cell = cells.cell(index)
     def max_value: Int = cells.cols.max.value
     def seed_from(index: Int) : Field = Field(cells.populate_new(index % total_size, cells.cell(index).value))
-    /* IN DIE TUI */
+
     override def toString = 
         val h_bar = ("+-" + "-" * max_value.toString.length + "-") * row_size + "+"
         val v_bar = ("|" + " "* max_value.toString.length + "k" + " ") * row_size + "|"

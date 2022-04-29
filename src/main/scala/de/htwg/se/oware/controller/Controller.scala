@@ -3,7 +3,7 @@ package de.htwg.se.oware.controller
 import de.htwg.se.oware.model.Field
 import de.htwg.se.oware.util.Observable
 
-class Controller(var field:Field) extends Observable:  
+class Controller(var field:Field) extends Observable:
 
   def seed_controls(str: String): Option[Int] = {
     val m = Map("a" -> 0, "0" -> 0, "b" -> 1, "1" -> 1, 
