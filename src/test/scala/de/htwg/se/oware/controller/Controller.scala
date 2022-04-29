@@ -26,10 +26,10 @@ class ControllerSpec extends AnyWordSpec with Matchers {
           controller.fetchData should be(field)
       }
       "when asked for validating player controls should return the appropriate Index" in {
-          controller.player_controls("a") should be(Some(0))
+          controller.seed_controls("a") should be(Some(0))
       }
       "when asked for invalid player controls should return none" in {
-          controller.player_controls("z") should be(None)
+          controller.seed_controls("z") should be(None)
       }
       "when asked for the string representation of the standard field should return it" in {
           controller.fieldToString should be(field.toString)

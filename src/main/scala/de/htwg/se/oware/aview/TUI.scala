@@ -49,7 +49,7 @@ class TUI(controller: Controller) extends Observer:
     }
 
     def seed_from(input: String): Unit = {
-        val control = controller.player_controls(input)
+        val control = controller.seed_controls(input)
         control match {
             case Some(control) => controller.seed(control)
             case None => println(error_message("Unknown", "parameter", input))
