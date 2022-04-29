@@ -11,7 +11,6 @@ class Controller(var field:Field) extends Observable:
                 "e" -> 4, "4" -> 4, "f" -> 5, "5" -> 5)
     m.get(str)
   }
-
   def initField(size: Int): Unit = { 
     field = new Field(size) 
     notifyObservers
@@ -20,5 +19,4 @@ class Controller(var field:Field) extends Observable:
     field = field.seed_from(idx)
     notifyObservers
   }
-  def fetchData: Field = field
   def fieldToString: String = field.toString

@@ -23,7 +23,7 @@ class ControllerSpec extends AnyWordSpec with Matchers {
       "when fetched return the current field" in {
           var field = new Field(6) 
           val controller = Controller(field)
-          controller.fetchData should be(field)
+          controller.field should be(field)
       }
       "when asked for validating player controls should return the appropriate Index" in {
           controller.seed_controls("a") should be(Some(0))
