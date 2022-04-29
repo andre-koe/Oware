@@ -34,6 +34,12 @@ project/metals.sbt
 !.vscode/extensions.json
 !.vscode/*.code-snippets
 
+# IntelliJ specific
+.idea
+*.iws
+*.iml
+*.ipr
+
 # Local History for Visual Studio Code
 .history/
 
