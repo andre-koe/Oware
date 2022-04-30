@@ -13,7 +13,12 @@ class TUISpec extends AnyWordSpec with Matchers {
   val controller = Controller(field)
   val tui = new TUI(controller)
         
-  "The TUI" when {    
+  "The TUI" when {  
+        "asked to say goodbye" should {
+            "says goodbye as specified" in {
+                tui.goodbye should be(AnsiColor.YELLOW + "Goodbye!" + AnsiColor.RESET)
+            }
+        }  
         "encountering a faulty user input" should {
             "return a color coded string as specified" in {
                 tui.error_message("Unknown", "parameter", "k") should be(AnsiColor.RED + "Unknown parameter: k enter h for help" + AnsiColor.RESET)
@@ -67,7 +72,7 @@ class TUISpec extends AnyWordSpec with Matchers {
         }
         "seeded with valid input it" should {
             "should yield in the correctly seeded field" in {
-                tui.seed_from("3")
+                tui.input_handling("s 3")
                 var field = new Field(6)
                 field = field.seed_from(3)
                 controller.fieldToString should be(field.toString) 
@@ -78,8 +83,7 @@ class TUISpec extends AnyWordSpec with Matchers {
                 var field = new Field(6) 
                 val controller = Controller(field)
                 val tui = new TUI(controller)
-                tui.seed_from("z")
-
+                tui.input_handling("s z")
                 controller.fieldToString should be(field.toString) 
             }
         }

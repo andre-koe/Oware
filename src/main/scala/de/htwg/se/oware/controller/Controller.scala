@@ -11,14 +11,12 @@ class Controller(var field:Field) extends Observable:
                 "e" -> 4, "4" -> 4, "f" -> 5, "5" -> 5)
     m.get(str)
   }
-
-  def initField(size: Int): Unit = { 
-    field = new Field(size) 
+  def selectAndExecute(toDo: Option[Int]): Unit = {
+    toDo match 
+      case None => field = initField(6)
+      case Some(toDo) => field = seed(toDo)
     notifyObservers
   }
-  def seed(idx: Int): Unit = {
-    field = field.seed_from(idx)
-    notifyObservers
-  }
-  def fetchData: Field = field
+  def initField(size: Int): Field = new Field(size) 
+  def seed(idx: Int): Field = field.seed_from(idx)
   def fieldToString: String = field.toString
