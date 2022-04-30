@@ -10,6 +10,8 @@ class TUI(controller: Controller) extends Observer:
 
     val eof = System.lineSeparator
 
+    def goodbye = AnsiColor.YELLOW + "Goodbye!" + AnsiColor.RESET
+
     def rules_string = AnsiColor.YELLOW + "Oware Rules:" + AnsiColor.RESET + eof + "=" * 10 + eof +
                 "Oware is strategy game for 2 players." + eof +
                 "Every player has 6 boxes in front of him each of which contains 4 stones. In total 48 stones." + eof +
@@ -32,29 +34,25 @@ class TUI(controller: Controller) extends Observer:
 
     def sanitize_input(input: String): Array[String] = input.toLowerCase().stripLeading.split(" ")
 
-    /* IN DEN CONTROLLER */
-    def input_processing(input: String): Unit = {
-        val str = sanitize_input(input)
-        str(0) match {
-                case "n" | "new"   => controller.initField(6)
-                case "s" | "seed"  => if str.length > 1 then seed_from(str(1))  
-                                      else println(error_message("Missing", "parameter", ""))                                   
-                case "r" | "rules" => println(eof + rules_string + eof)
-                                      update
-                case "h" | "help"  => println(eof + menu_string + eof)
-                                      update
-                case "q" => return
-                case default => println(error_message("Unknown", "input", default))
-        }
+    def input_handling(input: String): Unit = {
+        val input_as = sanitize_input(input)
+        input_as(0) match
+            case "q" => println(goodbye)
+            case "n" => controller.selectAndExecute(None)
+            case "r" => println(eof + rules_string + eof)
+                        update
+            case "h" => println(eof + menu_string + eof)
+                        update
+                        controller.field
+            case "s" => {
+                val option = input_as(1)
+                val index = controller.seed_controls(option)
+                index match
+                    case Some(index) => controller.selectAndExecute(Some(index))
+                    case None => println(error_message("Unknown", "parameter", option))
+            }
     }
 
-    def seed_from(input: String): Unit = {
-        val control = controller.seed_controls(input)
-        control match {
-            case Some(control) => controller.seed(control)
-            case None => println(error_message("Unknown", "parameter", input))
-        }
-    }
     def update: Unit = println(controller.fieldToString)
 
 

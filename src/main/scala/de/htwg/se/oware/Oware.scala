@@ -21,9 +21,7 @@ object Oware {
         
         while (input != "q")
             input = readLine()
-            tui.input_processing(input)
-        
-        println( AnsiColor.YELLOW + "Goodbye" + AnsiColor.RESET + eol)
+            tui.input_handling(input)
     } 
 }
         
