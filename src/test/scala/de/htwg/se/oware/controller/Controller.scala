@@ -17,10 +17,9 @@ class ControllerSpec extends AnyWordSpec with Matchers {
   "The Controller, responsible for passing Data to the TUI " should {
       "init a field with the length of 6" in {
           var field = new Field(6) 
-          val controller = Controller(field)
-          controller.field should be(field)
+          controller.initField(6) should be(field)
       }
-      "when fetched return the current field" in {
+      "when asked for the field should return the current field" in {
           var field = new Field(6) 
           val controller = Controller(field)
           controller.field should be(field)
@@ -36,15 +35,12 @@ class ControllerSpec extends AnyWordSpec with Matchers {
       }
       "when asked for the string representation of the current field should return it" in {
           var field = new Field(3)
-          controller.initField(3)
-          controller.fieldToString should be(field.toString)
+          controller.initField(3).toString should be(field.toString)
       }
       "when asked for the string representation of the currently changed field should return it" in {
-          var field = new Field(3)
+          var field = new Field(6)
           field = field.seed_from(3)
-          controller.initField(3)
-          controller.seed(3)
-          controller.fieldToString should be(field.toString)
+          controller.seed(3) should be(field)
       }
   }
 }
