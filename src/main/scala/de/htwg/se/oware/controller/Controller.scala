@@ -18,6 +18,6 @@ class Controller(var field:Field) extends Observable:
     notifyObservers
   }
   def initField(size: Int): Field = new Field(size) 
-  def seed(idx: Int): Field = if checkSeedConditions(idx) then field.seed_from(idx) else field
+  def seed(idx: Int): Field = field.seed_from(idx)
   def checkSeedConditions(idx: Int): Boolean = if field.cell(idx).value == 0 then false else true
   def fieldToString: String = field.toString
