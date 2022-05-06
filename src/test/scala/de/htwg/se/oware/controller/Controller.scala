@@ -57,5 +57,32 @@ class ControllerSpec extends AnyWordSpec with Matchers {
           controller.seed(3)
           val c = controller.validateSeedConditions(1) should be(true)
       }
+      "initialize a new field when manageInput(n) is called" in {
+          var field = new Field(6)
+          val a: Array[String] = new Array(2)
+          a(0) = "n"
+          a(1) = " "
+          val controller = Controller(field)
+          controller.manageInput(a)
+          controller.fieldToString should be(field.toString)
+      }
+      "respond with the unchanged field when manageInput(h) is called" in {
+          var field = new Field(6)
+          val a: Array[String] = new Array(2)
+          a(0) = "h"
+          a(1) = " "
+          val controller = Controller(field)
+          controller.manageInput(a)
+          controller.fieldToString should be(field.toString)
+      }
+      "respond with the unchanged field when manageInput(r) is called" in {
+          var field = new Field(6)
+          val a: Array[String] = new Array(2)
+          a(0) = "r"
+          a(1) = " "
+          val controller = Controller(field)
+          controller.manageInput(a)
+          controller.fieldToString should be(field.toString)
+      }
   }
 }
