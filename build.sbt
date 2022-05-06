@@ -5,6 +5,7 @@ lazy val root = (project in file("."))
   .settings(
     name := "Oware"
   )
+
 libraryDependencies += "org.scalafx" %% "scalafx" % "16.0.0-R24"
 libraryDependencies += "org.scalactic" %% "scalactic" % "3.2.11"
 libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.11" % "test"
@@ -17,12 +18,14 @@ libraryDependencies ++= {
     case n if n.startsWith("Windows") => "win"
     case _ => throw new Exception("Unknown platform!")
   }
+
   Seq("base", "controls", "fxml", "graphics", "media", "swing", "web")
     .map(m => "org.openjfx" % s"javafx-$m" % "16" classifier osName)
 }
 
-jacocoReportSettings := JacocoReportSettings("Jacoco Coverage Report",
-                                             None,
-                                             JacocoThresholds(),
-                                             Seq(JacocoReportFormats.ScalaHTML, JacocoReportFormats.XML), // note XML formatter
-                                             "utf-8")
+jacocoReportSettings := JacocoReportSettings(
+  "Jacoco Coverage Report",
+  None,
+  JacocoThresholds(),
+  Seq(JacocoReportFormats.ScalaHTML, JacocoReportFormats.XML), // note XML formatter
+  "utf-8")
