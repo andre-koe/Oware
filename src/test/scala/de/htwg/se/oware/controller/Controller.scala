@@ -25,10 +25,10 @@ class ControllerSpec extends AnyWordSpec with Matchers {
           controller.field should be(field)
       }
       "when asked for validating player controls should return the appropriate Index" in {
-          controller.seed_controls("a") should be(Some(0))
+          controller.seedControls("a") should be(Some(0))
       }
       "when asked for invalid player controls should return none" in {
-          controller.seed_controls("z") should be(None)
+          controller.seedControls("z") should be(None)
       }
       "when asked for the string representation of the standard field should return it" in {
           controller.fieldToString should be(field.toString)
@@ -41,6 +41,18 @@ class ControllerSpec extends AnyWordSpec with Matchers {
           var field = new Field(6)
           field = field.seed_from(3)
           controller.seed(3) should be(field)
+      }
+      "when checking seed conditions regarding an user input should return false if it's not possible" in {
+          var field = new Field(6)
+          val controller = Controller(field)
+          controller.selectAndExecute(Some(3))
+          controller.checkSeedConditions(3) should be(false)
+      }
+      "when checking seed conditions regarding an user input should return true if it's possible" in {
+          var field = new Field(6)
+          val controller = Controller(field)
+          controller.seed(3)
+          val c = controller.checkSeedConditions(1) should be(true)
       }
   }
 }

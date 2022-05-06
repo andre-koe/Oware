@@ -6,9 +6,9 @@ import org.scalatest._
 import org.scalatest.wordspec.AnyWordSpec
 import org.scalatest.matchers.should.Matchers
 import de.htwg.se.oware.controller.Controller
+import de.htwg.se.oware.eol
 
 class TUISpec extends AnyWordSpec with Matchers {
-  val eof = System.lineSeparator
   var field = new Field(6) 
   val controller = Controller(field)
   val tui = new TUI(controller)
@@ -21,7 +21,7 @@ class TUISpec extends AnyWordSpec with Matchers {
         }  
         "encountering a faulty user input" should {
             "return a color coded string as specified" in {
-                tui.error_message("Unknown", "parameter", "k") should be(AnsiColor.RED + "Unknown parameter: k enter h for help" + AnsiColor.RESET)
+                tui.error_message("Unknown parameter", "k") should be(eol + AnsiColor.RED + "Unknown parameter: k -> enter h for help" + AnsiColor.RESET + eol)
             }
         }
         "fed a string (user input)" should {
@@ -40,26 +40,26 @@ class TUISpec extends AnyWordSpec with Matchers {
         }
         "asked for the menu string" should {
             "it should be as expected" in {
-                tui.menu_string should be(AnsiColor.YELLOW + "Menu: " +  AnsiColor.RESET + eof + "=" * 10 + eof +
-                                         "Command:" + " "*4 + "Action" + eof +
-                                         "n" + " "* (5 + ("Command".length - 1)) + "restart the game" + eof +
-                                         "s n" + " "* (5 + ("Command".length - 3)) + "seed from box with index n [A-F|0-5]" + eof +
-                                         "h" + " "* (5 + ("Command".length - 1)) + "Show help" + eof +
+                tui.menu_string should be(AnsiColor.YELLOW + "Menu: " +  AnsiColor.RESET + eol + "=" * 10 + eol +
+                                         "Command:" + " "*4 + "Action" + eol +
+                                         "n" + " "* (5 + ("Command".length - 1)) + "restart the game" + eol +
+                                         "s n" + " "* (5 + ("Command".length - 3)) + "seed from box with index n [A-F|0-5]" + eol +
+                                         "h" + " "* (5 + ("Command".length - 1)) + "Show help" + eol +
                                          "q" + " "* (5 + ("Command".length - 1)) + "ends the game"
                                          )
             }
         }
         "asked for the rules string" should {
             "it should be as expected" in {
-                tui.rules_string should be(AnsiColor.YELLOW + "Oware Rules:" + AnsiColor.RESET + eof + "=" * 10 + eof +
-                                          "Oware is strategy game for 2 players." + eof +
-                                          "Every player has 6 boxes in front of him each of which contains 4 stones. In total 48 stones." + eof +
-                                          "In each move the player has to seed from one of his non empty boxes." + eof + 
-                                          "E.g. the stones are transfered one by one into the neighbouring boxes, (counter clockwise)" + eof +
-                                          "until no stones remain in the box." + eof +
-                                          "boxes can't be skipped" + eof +
-                                          "If an enemy box in which stones have been transfered during the previous seeding contains exactly 2 or 3 stones" + eof +
-                                          "the box will be emptied and the seeding player will get those stones" + eof +
+                tui.rules_string should be(AnsiColor.YELLOW + "Oware Rules:" + AnsiColor.RESET + eol + "=" * 10 + eol +
+                                          "Oware is strategy game for 2 players." + eol +
+                                          "Every player has 6 boxes in front of him each of which contains 4 stones. In total 48 stones." + eol +
+                                          "In each move the player has to seed from one of his non empty boxes." + eol + 
+                                          "E.g. the stones are transfered one by one into the neighbouring boxes, (counter clockwise)" + eol +
+                                          "until no stones remain in the box." + eol +
+                                          "boxes can't be skipped" + eol +
+                                          "If an enemy box in which stones have been transfered during the previous seeding contains exactly 2 or 3 stones" + eol +
+                                          "the box will be emptied and the seeding player will get those stones" + eol +
                                           "A player has to play in a way that the other player always has at least one stone to play with"
                                          )
             }
