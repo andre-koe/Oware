@@ -45,14 +45,17 @@ class ControllerSpec extends AnyWordSpec with Matchers {
       "when checking seed conditions regarding an user input should return false if it's not possible" in {
           var field = new Field(6)
           val controller = Controller(field)
-          controller.selectAndExecute(Some(3))
-          controller.checkSeedConditions(3) should be(false)
+          val a: Array[String] = new Array(2)
+          a(0) = "s"
+          a(1) = "3"
+          controller.manageInput(a)
+          controller.validateSeedConditions(3) should be(false)
       }
       "when checking seed conditions regarding an user input should return true if it's possible" in {
           var field = new Field(6)
           val controller = Controller(field)
           controller.seed(3)
-          val c = controller.checkSeedConditions(1) should be(true)
+          val c = controller.validateSeedConditions(1) should be(true)
       }
   }
 }

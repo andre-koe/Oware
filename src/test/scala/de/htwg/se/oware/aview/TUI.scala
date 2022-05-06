@@ -15,15 +15,10 @@ class TUISpec extends AnyWordSpec with Matchers {
         
   "The TUI" when {  
         "asked to say goodbye" should {
-            "says goodbye as specified" in {
-                tui.goodbye should be(AnsiColor.YELLOW + "Goodbye!" + AnsiColor.RESET)
+            "say goodbye as specified" in {
+                tui.goodbye should be("Goodbye!")
             }
         }  
-        "encountering a faulty user input" should {
-            "return a color coded string as specified" in {
-                tui.error_message("Unknown parameter", "k") should be(eol + AnsiColor.RED + "Unknown parameter: k -> enter h for help" + AnsiColor.RESET + eol)
-            }
-        }
         "fed a string (user input)" should {
             "digest it and turn it into an array of strings containing the parts of the string" in {
                 var a = new Array[String](2)
@@ -40,7 +35,7 @@ class TUISpec extends AnyWordSpec with Matchers {
         }
         "asked for the menu string" should {
             "it should be as expected" in {
-                tui.menu_string should be(AnsiColor.YELLOW + "Menu: " +  AnsiColor.RESET + eol + "=" * 10 + eol +
+                tui.help should be("Menu: " + eol + "=" * 40 + eol +
                                          "Command:" + " "*4 + "Action" + eol +
                                          "n" + " "* (5 + ("Command".length - 1)) + "restart the game" + eol +
                                          "s n" + " "* (5 + ("Command".length - 3)) + "seed from box with index n [A-F|0-5]" + eol +
@@ -51,7 +46,7 @@ class TUISpec extends AnyWordSpec with Matchers {
         }
         "asked for the rules string" should {
             "it should be as expected" in {
-                tui.rules_string should be(AnsiColor.YELLOW + "Oware Rules:" + AnsiColor.RESET + eol + "=" * 10 + eol +
+                tui.rules should be("Oware Rules:" + eol + "=" * 40 + eol +
                                           "Oware is strategy game for 2 players." + eol +
                                           "Every player has 6 boxes in front of him each of which contains 4 stones. In total 48 stones." + eol +
                                           "In each move the player has to seed from one of his non empty boxes." + eol + 
@@ -64,6 +59,16 @@ class TUISpec extends AnyWordSpec with Matchers {
                                          )
             }
         }
+
+        "when returning a message in a message wrapper should respond" should {
+            "in case of an error with a red message and -> enter h for help" in {
+                tui.error_message("test") should be(eol + AnsiColor.RED + "test -> enter h for help" + AnsiColor.RESET + eol)
+            }
+            "in case of a menu response with a yellow message" in {
+                tui.menu_message("test") should be(eol + AnsiColor.YELLOW + "test" + AnsiColor.RESET + eol)
+            }
+        }
+
         "removed from the list of observers " should {
             "lead to an empty controller list " in {
                 controller.remove(tui)
@@ -72,7 +77,7 @@ class TUISpec extends AnyWordSpec with Matchers {
         }
         "seeded with valid input it" should {
             "should yield in the correctly seeded field" in {
-                tui.input_handling("s 3")
+                tui.inputHandler("s 3")
                 var field = new Field(6)
                 field = field.seed_from(3)
                 controller.fieldToString should be(field.toString) 
@@ -83,7 +88,7 @@ class TUISpec extends AnyWordSpec with Matchers {
                 var field = new Field(6) 
                 val controller = Controller(field)
                 val tui = new TUI(controller)
-                tui.input_handling("s z")
+                tui.inputHandler("s z")
                 controller.fieldToString should be(field.toString) 
             }
         }
