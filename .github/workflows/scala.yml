@@ -1,6 +1,7 @@
-name: Scala CI
-Scala CI:
+codecov:
   disable_default_path_fixes: true
+
+name: Scala CI
 on:
   push:
     branches: [ developer ]
