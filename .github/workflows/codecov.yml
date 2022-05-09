@@ -1,8 +1,9 @@
 codecov:
+  branch: [developer, main]
   disable_default_path_fixes: true
   fixes:
-    "::model/"
-    "::aview/"
-    "::controller/"
+    - "::model/"
+    - "::aview/"
+    - "::controller/"
 
 
