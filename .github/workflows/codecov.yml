@@ -1,6 +1,6 @@
 codecov:
   disable_default_path_fixes: yes
   fixes:
-    "Oware\src\main\scala\de\htwg\se\oware\model::Oware\src\main\scala\de\htwg\se\oware\model"
+    "Oware/src/main/scala/de/htwg/se/oware/model::Oware/src/main/scala/de/htwg/se/oware/model"
 
 
