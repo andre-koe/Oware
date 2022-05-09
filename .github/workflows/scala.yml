@@ -27,7 +27,7 @@ jobs:
       - name: Run tests
         run:
           sbt clean test jacoco
-          disable_default_path_fixes: true
+        disable_default_path_fixes: true
       - name: Upload report to Codecov
         run: |
           curl -s https://codecov.io/bash > .codecov
