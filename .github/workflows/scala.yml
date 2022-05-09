@@ -1,6 +1,5 @@
-name: Scala CI
-
-codecov:
+name: ScalaCI
+ScalaCI:
   disable_default_path_fixes: true
 on:
   push:
