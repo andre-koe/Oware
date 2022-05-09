@@ -1,9 +1,10 @@
 codecov:
-  branch: [developer, main]
   disable_default_path_fixes: true
   fixes:
-    - "::model/"
-    - "::aview/"
-    - "::controller/"
+    - "oware/::oware/model/"
+    - "oware/::oware/aview/"
+    - "oware/::oware/controller/"
+    - "oware/::oware/util/"#
+    - "oware/::oware/"
 
 
