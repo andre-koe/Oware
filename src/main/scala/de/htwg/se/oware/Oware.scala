@@ -21,7 +21,7 @@ object Oware {
         
         while (input != "q")
             input = readLine()
-            tui.input_handling(input)
+            tui.inputHandler(input)
     } 
 }
         
