@@ -12,7 +12,6 @@ object Oware {
     val controller = Controller(field)
     val tui = new TUI(controller)
     val welcome_msg = eol + AnsiColor.YELLOW + "Welcome to Oware!" + AnsiColor.RESET + eol
-    var roundCount = 0
 
     def main(args: Array[String]): Unit = {
         var input = ""
@@ -24,7 +23,6 @@ object Oware {
             input = readLine()
             tui.inputHandler(input)
             roundCount += 1
-            if roundCount % 2 == 0 then field.swapField()
     } 
 }
         
