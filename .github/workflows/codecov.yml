@@ -1,10 +1,6 @@
 codecov:
   disable_default_path_fixes: true
   fixes:
-    - "oware/::oware/model/"
-    - "oware/::oware/aview/"
-    - "oware/::oware/controller/"
-    - "oware/::oware/util/"#
-    - "oware/::oware/"
+  - "::de.htwg.se.oware/"
 
 
