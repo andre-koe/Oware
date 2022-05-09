@@ -22,7 +22,6 @@ object Oware {
         while (input != "q")
             input = readLine()
             tui.inputHandler(input)
-            roundCount += 1
     } 
 }
         
