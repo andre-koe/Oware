@@ -1,4 +1,4 @@
-codecov:
+scala:
   disable_default_path_fixes: true
 
 name: Scala CI
