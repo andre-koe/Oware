@@ -21,6 +21,7 @@ jobs:
         with:
           java-version: '11'
           distribution: 'temurin'
+          fetch-depth: 2
       - name: Setup
         run:
           sudo -i
