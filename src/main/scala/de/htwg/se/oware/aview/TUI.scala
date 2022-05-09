@@ -48,7 +48,7 @@ class TUI(controller: Controller) extends Observer:
                 idx match
                     case None => println(error_message("Unknown parameter " + input(1)))
                     case Some(idx) => if !controller.validateSeedConditions(idx) then 
-                        print(error_message("Cannot seed from empty box at index " + input(1)))
+                        println(error_message("Cannot seed from empty box at index " + input(1)))
                 controller.manageInput(input)
             case _ =>
                 println(error_message("Unknown parameter " + input(0)))  
