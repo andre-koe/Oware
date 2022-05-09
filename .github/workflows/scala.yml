@@ -1,4 +1,5 @@
 name: Scala CI
+disable_default_path_fixes: true
 
 on:
   push:
@@ -21,7 +22,6 @@ jobs:
         with:
           java-version: '11'
           distribution: 'temurin'
-          fetch-depth: 2
       - name: Setup
         run:
           sudo -i
