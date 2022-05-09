@@ -1,6 +1,6 @@
 codecov:
   disable_default_path_fixes: true
   fixes:
-  - "::de.htwg.se.oware/"
+  - "aview/::src/main/scala/de/htwg/se/oware/aview"
 
 
