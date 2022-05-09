@@ -1,5 +1,7 @@
 name: Scala CI
 
+codecov:
+  disable_default_path_fixes: true
 on:
   push:
     branches: [ developer ]
@@ -30,7 +32,6 @@ jobs:
           sbt clean test jacoco
       - name: Upload report to Codecov
         run: |
-          disable_default_path_fixes: true
           curl -s https://codecov.io/bash > .codecov
           chmod +x .codecov
           bash .codecov
