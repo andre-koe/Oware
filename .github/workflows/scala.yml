@@ -1,5 +1,5 @@
 name: Scala CI
-ScalaCI:
+Scala CI:
   disable_default_path_fixes: true
 on:
   push:
