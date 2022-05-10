@@ -2,6 +2,7 @@ package de.htwg.se.oware.model
 
 case class Field(private val cells: Matrix):
     def this(size: Int = 6) = this(new Matrix(size, Cell(4)))
+    
     val total_size = cells.total_length
     val row_size = cells.row_length;
 

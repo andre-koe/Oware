@@ -25,6 +25,7 @@ class Controller(var field:Field) extends Observable:
       notifyObservers
   }
 
+  def flipField: Field = field.swapField()
   def initField(size: Int): Field = new Field(size) 
   def seed(idx: Int): Field = field.seed_from(idx)
   def validateSeedConditions(idx: Int): Boolean = if field.cell(idx).value != 0 then true else false
