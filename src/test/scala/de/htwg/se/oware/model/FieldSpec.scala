@@ -104,7 +104,27 @@ class FieldSpec extends AnyWordSpec with Matchers {
                                              "| 4 | 0 | 5 | 5 | 5 | 5 |" + System.lineSeparator +
                                              "+---+---+---+---+---+---+")
             }
+            "have the appropriate values when swapped" in {
+                var testField = new Field(6)
+                testField = testField.seed_from(0)
+                testField = testField.swapField()
+                testField.cell(0).value should be(4)
+            }
+            "have the appropriate string representation" in {
+                var testField = new Field(6)
+                testField = testField.seed_from(0)
+                testField = testField.swapField()
+                testField.toString should be("+---+---+---+---+---+---+" + System.lineSeparator +
+                                             "| 0 | 5 | 5 | 5 | 5 | 4 |" + System.lineSeparator +
+                                             "+---+---+---+---+---+---+" + System.lineSeparator +
+                                             "| 4 | 4 | 4 | 4 | 4 | 4 |" + System.lineSeparator +
+                                             "+---+---+---+---+---+---+")
+            }
+            
+
         }
+
+        
         
     } 
 }
