@@ -84,5 +84,18 @@ class ControllerSpec extends AnyWordSpec with Matchers {
           controller.manageInput(a)
           controller.fieldToString should be(field.toString)
       }
+      "respond with a flipped field when flip field is called" in {
+          var field = new Field(6)
+          val a: Array[String] = new Array(2)
+          a(0) = "s"
+          a(1) = "1"
+          val controller = Controller(field)
+          controller.manageInput(a)
+          controller.flipField.toString should be("+---+---+---+---+---+---+" + System.lineSeparator +
+                                       "| 4 | 0 | 5 | 5 | 5 | 5 |" + System.lineSeparator +
+                                       "+---+---+---+---+---+---+" + System.lineSeparator +
+                                       "| 4 | 4 | 4 | 4 | 4 | 4 |" + System.lineSeparator +
+                                       "+---+---+---+---+---+---+")
+      }
   }
 }
