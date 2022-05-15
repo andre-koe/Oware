@@ -15,10 +15,7 @@ class Controller(var field:Field) extends Observable:
 
   def manageInput(input: Array[String]): Unit = {
     input(0) match
-      case "s" => val idx = seedControls(input(1))
-                  idx match
-                    case None => field
-                    case Some(idx) => if validateSeedConditions(idx) then field = seed(idx) else field = field
+      case "s" => field = SeedSelector(this, input(0))
       case "n" => field = initField(6)
       case "h" | "r" => field
       case _ => field
